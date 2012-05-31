@@ -24,7 +24,7 @@
         [Test]
         public void Issue6_ModelShouldBePassedToLayout()
         {
-            using (var service = new TemplateService())
+            using (var service = new TemplateService(new TemplateServiceConfiguration(){Debug = true}))
             {
                 const string layoutTemplate = "<h1>@Model.PageTitle</h1> @RenderSection(\"Child\")";
                 const string childTemplate = "@{ _Layout = \"Parent\"; }@section Child {<h2>@Model.PageDescription</h2>}";

@@ -29,6 +29,12 @@
             if (binder == null)
                 throw new ArgumentNullException("binder");
 
+            if (Model == null)
+            {
+                result = null;
+                return false;
+            }
+
             var dynamicObject = Model as RazorDynamicObject;
             if (dynamicObject != null)
                 return dynamicObject.TryGetMember(binder, out result);
